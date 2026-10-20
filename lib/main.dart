@@ -63,19 +63,25 @@ class _HomePageState extends State<HomePage> {
         children: [
           FloatingActionButton(
             child: Icon(Icons.add),
+            backgroundColor: counter < 10 ? Colors.amber : Colors.grey,
             onPressed: () {
-              setState(() {
-                counter++;
-              });
+              if (counter < -10) {
+                setState(() {
+                  counter--;
+                });
+              }
             },
           ),
           SizedBox(width: 2),
           FloatingActionButton(
             child: Icon(Icons.remove),
+            backgroundColor: counter > -10 ? Colors.red : Colors.grey,
             onPressed: () {
-              setState(() {
-                counter--;
-              });
+              if (counter > -10) {
+                setState(() {
+                  counter--;
+                });
+              }
             },
           ),
         ],
